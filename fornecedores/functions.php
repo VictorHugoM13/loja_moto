@@ -136,19 +136,5 @@ require_once '../config.php';
         }
     }
 
-    function del($table, $id){
-        try {
-            $link = open_database();
-            $sql = "DELETE FROM $table WHERE id = $id";
-            $exec  = $link->query($sql);
-            $_SESSION['message'] = 'Registro removido com sucesso.';
-            $_SESSION['type'] = 'success';
-
-        }
-        catch (mysqli_sql_exception $e) {
-            $_SESSION['message'] = 'ERRO:'.$e->getMessage();
-            $_SESSION['type'] = 'danger'; 
-        }
-    }
 
 ?>

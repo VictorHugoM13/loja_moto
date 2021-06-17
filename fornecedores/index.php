@@ -53,7 +53,6 @@
             <th><?php echo $registro['telefone'];?></th>
             <th class="text-right">
                 <a href="edit.php?id=<?php echo $registro['id'];?>" class="btn btn-sm btn-info">Editar</a>
-                <a href="del.php?id=<?php echo $registro['id'];?>" class="btn btn-sm btn-danger">Excluir</a>
             
             </th>
         </tr>
