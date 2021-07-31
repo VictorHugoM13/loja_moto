@@ -1,7 +1,6 @@
 <?php
 
     require_once 'functions.php';
-    require_once '../produto/functions.php';
     include_once HEADER_TEMPLATE;
     verificar_quantidade();
     
@@ -25,7 +24,7 @@
             <label for="">Nome do Produto</label>
             <select class="form-control" name="transacoes[id_produto]" required>
             <?php
-                index_('produto');
+                index_registro('produto');
                 if ($registros){
                     foreach($registros as $registro){
             ?>

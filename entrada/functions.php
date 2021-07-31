@@ -49,7 +49,7 @@
         }
     }
 
-    function save ($table, $dados) {
+    function save($table, $dados) {
         $link = open_database();
         $colunas = null;
         $valores = null;
@@ -70,6 +70,42 @@
             $_SESSION['message'] = 'Não foi possivel realizar a operação.';
             $_SESSION['type'] = 'danger';           
         }
+    }
+
+    function index_registro($table){
+        global $registros;
+        $registros = find_all_registro($table);
+    }
+
+    function find_all_registro($table){
+        return find_registro($table);
+    }
+
+    function find_registro($table = null, $id = null){
+        $link = open_database();
+        $found = null;
+        try {
+            if ($id){
+                $sql = "SELECT * FROM $table WHERE id = $id ";
+                $exec = $link->query($sql);
+                if ($exec->num_rows > 0) {
+                    $found = $exec->fetch_assoc();
+                }
+            }
+            else {
+                //todos os registros
+                $sql = "SELECT * FROM $table";
+                $exec = $link->query($sql);
+                if ($exec->num_rows > 0 ){
+                    $found = $exec->fetch_all(MYSQLI_ASSOC);
+                }
+            }                        
+        }
+        catch (Exception $e)
+        {
+            $found = null;
+        }
+        return $found;
     }
 
 

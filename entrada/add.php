@@ -1,7 +1,6 @@
 <?php
 
     require_once 'functions.php';
-    require_once '../produto/functions.php';
     include_once HEADER_TEMPLATE;
     add('fornecedor_produto');
     
@@ -25,7 +24,7 @@
             <label for="">Nome do Produto</label>
             <select class="form-control" name="fornecedor_produto[id_produto]" required>
             <?php
-                index_('produto');
+                index_registro('produto');
                 if ($registros){
                     foreach($registros as $registro){
             ?>
@@ -39,7 +38,7 @@
             <label for="">Nome do Fornecedor</label>
             <select class="form-control" class="form-control" name="fornecedor_produto[cnpj_fornecedor]" required>
             <?php
-                index_('fornecedor');
+                index_registro('fornecedor');
                 if ($registros){
                     foreach($registros as $registro){
             ?>
